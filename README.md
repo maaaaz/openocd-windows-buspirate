@@ -44,22 +44,35 @@ Tutorial
 In case you want to compile your own version (on Windows/Cygwin or Linux), here is a tutorial to do so:  
   
 1. **Clone**:  
-  * A. The Gerrit repository if you want an up-to-date version and no SWD support:  
-  `git clone http://openocd.zylin.com/openocd`  
-  * B. The Debian repository in the `0.9.0-1` version if you want SWD support:  
-  `git clone git://anonscm.debian.org/crosstoolchain/openocd.git && cd openocd/ && git checkout debian/0.9.0-1`  
+    * A. The Gerrit repository if you want an up-to-date version and no SWD support:  
+    ```
+    > git clone http://openocd.zylin.com/openocd
+    ```  
+    * B. The Debian repository in the `0.9.0-1` version with the SWD support patch:  
+    ```
+    > git clone git://anonscm.debian.org/crosstoolchain/openocd.git && cd openocd/ && git checkout debian/0.9.0-1
+    ```
+    ```
+    > cd src/jtag/drivers && curl -o buspirate.c 'http://openocd.zylin.com/gitweb?p=openocd.git;a=blob_plain;f=src/jtag/drivers/buspirate.c;h=ad33d94aff1644768cbdb2c344bd384ab8be3f40;hb=8f39e8f6fd25f5b13cccccf9af5fd885b365e9f4'
+    ```  
   
 2. Install the **following packages**:  
     `build-essential automake autoconf autogen pkg-config libtool texinfo libusb-dev`  
   
 3. **Configure**:  
     * A. Like that for the Gerrit repository  
-    `./bootstrap && ./configure --enable-buspirate --enable-maintainer-mode`  
+    ```
+    > ./bootstrap && ./configure --enable-buspirate --enable-maintainer-mode
+    ```  
     * B. Like that for the Debian repository  
-    `autoreconf --force --install && ./configure --enable-buspirate --enable-maintainer-mode`  
+    ```
+    > autoreconf --force --install && ./configure --enable-buspirate --enable-maintainer-mode
+    ```  
   
 4. **Make and install**:  
-    `make && make install`  
+    ```
+    > make && make install
+    ```  
     
     
 Copyright and license
