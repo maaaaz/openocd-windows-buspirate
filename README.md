@@ -3,7 +3,7 @@ openocd-windows-buspirate
 
 Description
 -----------
-The great `opencd` tool compiled for Windows with **Bus Pirate support**, coming in 2 versions:
+The great `openocd` tool compiled for Windows with **Bus Pirate support**, coming in 2 versions:
 
 * A. The latest `0.10.0` version from the **Gerrit repository**, without SWD transport support
 ```
