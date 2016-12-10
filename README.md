@@ -61,7 +61,7 @@ Copyright and license
 * I don't own anything on the openocd brand nor affiliated with the project
 * Last but not least, antivirus softwares might report some binaries as hacktools or even malwares: this is a known and common issue. If you don't trust this compilation: 
   1. Just don't download it.
-  2. Compile it yourself with [that tutorial](https://github.com/maaaaz/CrackMapExecWin/wiki/How-to-compile-CrackMapExec-for-Windows)
+  2. Compile it yourself with the above tutorial
 
   
 References and cool previous researches
