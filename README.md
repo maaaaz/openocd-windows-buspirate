@@ -42,22 +42,22 @@ Usage
 Tutorial
 --------
 In case you want to compile your own version (on Windows/Cygwin or Linux), here is a tutorial to do so:  
-1. Clone:  
-    * A. The Gerrit repository if you want an up-to-date version and no SWD support:  
-    `git clone http://openocd.zylin.com/openocd`  
+1. **Clone**:  
+  * A. The Gerrit repository if you want an up-to-date version and no SWD support:  
+  `git clone http://openocd.zylin.com/openocd`  
     * B. The Debian repository in the `0.9.0-1` version if you want SWD support:  
     `git clone git://anonscm.debian.org/crosstoolchain/openocd.git && cd openocd/ && git checkout debian/0.9.0-1`  
   
-2. Install the following packages:  
+2. Install the **following packages**:  
     `build-essential automake autoconf autogen pkg-config libtool texinfo libusb-dev`  
   
-3. Configure:  
+3. **Configure**:  
     * A. Like that for the Gerrit repository  
     `./bootstrap && ./configure --enable-buspirate --enable-maintainer-mode`  
     * B. Like that for the Debian repository  
     `autoreconf --force --install && ./configure --enable-buspirate --enable-maintainer-mode`  
   
-4. Make and install:  
+4. **Make and install**:  
     `make && make install`  
     
     
