@@ -42,6 +42,7 @@ Usage
 Tutorial
 --------
 In case you want to compile your own version (on Windows/Cygwin or Linux), here is a tutorial to do so:  
+  
 1. **Clone**:  
   * A. The Gerrit repository if you want an up-to-date version and no SWD support:  
   `git clone http://openocd.zylin.com/openocd`  
