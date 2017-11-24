@@ -31,7 +31,7 @@ swd
 Error: You need to specify the serial port!
 ```
 
-* C. The `0.10.0` with ESP32 support
+* C. The `0.10.0` with **ESP32 support**
 ```
 > openocd.bat -c "target types"
 Open On-Chip Debugger 0.10.0-dev-g7aeadf8e (2017-11-01-15:52)
