@@ -3,7 +3,7 @@ openocd-windows-buspirate
 
 Description
 -----------
-The great `openocd` tool compiled for Windows with **Bus Pirate support**, coming in 2 versions:
+The great `openocd` tool compiled for Windows with **Bus Pirate support**, coming in 3 versions:
 
 * A. The latest `0.10.0` version from the **Gerrit repository**, without SWD transport support
 ```
@@ -31,10 +31,19 @@ swd
 Error: You need to specify the serial port!
 ```
 
+* C. The `0.10.0` with ESP32 support
+```
+> openocd.bat -c "target types"
+Open On-Chip Debugger 0.10.0-dev-g7aeadf8e (2017-11-01-15:52)
+Licensed under GNU GPL v2
+For bug reports, read
+        http://openocd.org/doc/doxygen/bugs.html
+arm7tdmi arm9tdmi arm920t arm720t arm966e arm946e arm926ejs fa526 feroceon dragonite xscale cortex_m cortex_a cortex_r4 arm11 ls1_sap mips_m4k avr dsp563xx dsp5680xx testee avr32_ap7k hla_target nds32_v2 nds32_v3 nds32_v3m esp108 esp32 or1k quark_x10xx quark_d20xx
+```
 
 Usage
 -----
-1. Download the desired archive, with or without SWD support
+1. Download the desired archive
 2. Extract it and run `bin\openocd.bat` (fixing the `scripts` folder path)
 3. Profit
 
@@ -54,13 +63,17 @@ In case you want to compile your own version (on Windows/Cygwin or Linux), here 
     ```
     ```
     > cd src/jtag/drivers && curl -o buspirate.c 'http://openocd.zylin.com/gitweb?p=openocd.git;a=blob_plain;f=src/jtag/drivers/buspirate.c;h=ad33d94aff1644768cbdb2c344bd384ab8be3f40;hb=8f39e8f6fd25f5b13cccccf9af5fd885b365e9f4'
-    ```  
+    ```
+    * C. The espressif repository if you want ESP32 support:  
+    ```
+    > git clone https://github.com/espressif/openocd-esp32.git
+    ``` 
   
 2. Install the **following packages**:  
     `build-essential automake autoconf autogen pkg-config libtool texinfo libusb-dev`  
   
 3. **Configure**:  
-    * A. Like that for the Gerrit repository  
+    * A. and C. Like that  
     ```
     > ./bootstrap && ./configure --enable-buspirate --enable-maintainer-mode
     ```  
@@ -74,6 +87,10 @@ In case you want to compile your own version (on Windows/Cygwin or Linux), here 
     > make && make install
     ```  
     
+5. (optional) Copy the necessary DLL into the `bin` folder in order to be able to **run the executable without a cygwin environment**:
+    ```
+    > ldd openocd.exe | grep -iv WINDOWS | cut -d '>' -f 2 | cut -d ' ' -f 2-|sed -r 's/(.*)\s[(].*/\1/g'| xargs -n1 -I {} sh -c 'cp "{}" .'
+    ```
     
 Copyright and license
 ---------------------
